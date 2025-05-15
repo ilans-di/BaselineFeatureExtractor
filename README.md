@@ -59,21 +59,31 @@ python feature_train.py \
     --dataset_name dataset_name \
     --seed 42
 ```
-### Model_type
+### Arguments
 --model_type — Type of model to train:
 
-    svm
+    svm, random_forest, xgboost, logistic_regression, gradient_boosting, extra_trees
 
-    random_forest
-
-    xgboost
-
-    logistic_regression
-
-    gradient_boosting
-
-    extra_trees
-
---dataset_name — we've used 
+--dataset_name — Enum name of the dataset (e.g., grambeddings)
 
 --seed — (Optional) Random seed for reproducibility (default: 42)
+## Making Predictions
+```bash
+python feature_predict.py \
+    --model models/xgb_model.pkl \
+    --dataset_name grambeddings
+```
+
+## 📌 Notes
+
+    Define dataset enums yourself to point to your actual .parquet files. Use different enums for train and test
+
+    Ensure .parquet files contain:
+
+        url column: raw URL strings
+
+        label column: string-based class labels (e.g., "benign", "malicious")
+
+    Feature extraction is part of the training and prediction pipeline.
+    
+
