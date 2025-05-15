@@ -1,0 +1,13 @@
+name: url_feature_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pandas
+  - scikit-learn
+  - pyarrow
+  - xgboost
+  - pip:
+    - clearml
+    - dotenv
